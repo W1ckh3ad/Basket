@@ -4,7 +4,7 @@ public class Basket {
     private String[] basket = new String[10];
     private int count;
 
-    public Basket(String... obst) {
+    public Basket(String... obst) throws Exception {
         if (obst.length > 10) {
             throw new Exception();
         }
@@ -14,7 +14,7 @@ public class Basket {
         }
     }
 
-    public void addObst(String obst){
+    public void addObst(String obst) throws Exception {
         if (count >= 10) {
             throw new Exception();
         }
@@ -31,10 +31,13 @@ public class Basket {
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        String string = "";
+        String string = "Obstliste: \n\n";
         for (int i = 0; i < basket.length; i++) {            
-                string += i + ") " + basket[i];            
+                if (basket[i] != null) {
+                    string += i + ") " + basket[i] + "\n";            
+                }
         }
+        string += "Es sind noch " + (10 - count) + " Plätze frei im Obstkorb \n\n\n";
         return string;
     }
 
