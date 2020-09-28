@@ -14,14 +14,14 @@ public class Basket {
         }
     }
 
-    public addObst(String obst){
+    public void addObst(String obst){
         if (count >= 10) {
             throw new Exception();
         }
         basket[count++] = obst;
     }
 
-    public removeObst(int index){
+    public void removeObst(int index){
         count--;
         for (int i = index + 1; i < basket.length; i++) {
             basket[i - 1]  = basket[i];
