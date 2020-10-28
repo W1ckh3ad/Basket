@@ -1,33 +1,23 @@
 package classes;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class BasketArrayList {
-    private ArrayList<String> basket = new ArrayList<>();
-    private int count;
+    private LinkedList<String> basket = new LinkedList<String>();
 
     public BasketArrayList(String... obst) throws Exception {
-        if (obst.length > 10) {
-            throw new Exception();
-        }
-        count = obst.length;
+        
         for (int i = 0; i < obst.length; i++) {
-            basket[i] = obst[i];
+            basket.add(obst[i]);
         }
     }
 
-    public void addObst(String obst) throws Exception {
-        if (count >= 10) {
-            throw new Exception();
-        }
-        basket[count++] = obst;
+    public void addObst(String obst) throws Exception {       
+        basket.add(obst);
     }
 
-    public void removeObst(int index){
-        count--;
-        for (int i = index + 1; i < basket.length; i++) {
-            basket[i - 1]  = basket[i];
-        }
+    public void removeObst(int index){        
+       basket.remove(index);
     }
 
     @Override
